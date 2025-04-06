@@ -2,14 +2,13 @@ import os, time, json
 def limpiar():
     os.system('cls' if os.name == 'nt' else 'clear')
 
-
 def bienvenida():
-    print("="*40)
-    print(" "*15,"CROSS CAVE")
-    print("="*40)
+    print("="*42)
+    print(" "*15,"  CROSS CAVE")
+    print("="*42)
 
 def mostrar_reglas():
-    reglas=""""
+    reglas="""
     ================REGLAS================
     1. El jugador esta representado
        por "♾"
@@ -24,45 +23,20 @@ def mostrar_reglas():
     input("Presiona cualquier tecla para iniciar: ")
 
 def guia_inicio():
-    global presentacion, final_malo
     print("Hombre: Viajero, me presento, soy Lucius, el jefe de este pueblo")
     time.sleep(1)
     print("Hombre: Nuestro pueblo ha sido maldito, un demonio robò nuestra cruz y huyò a la cueva")
     time.sleep(1)
-    print("Ayudanos a recuperarla, y te recompensaremos")
-    while True: 
-        print("1.Para ayudarlos")
-        print("2.Para seguir tu camino")
-        salvarlos=input("Ingresa tu eleccion: ")
-        if salvarlos=="1": 
-            print("Hombre: Gracias, viajero")
-            time.sleep(1)
-            print("Puede que esto te ayude")
-            time.sleep(1)
-            print("Obtuviste 1 de comida")
-            time.sleep(1)
-            input("Presione cualquier tecla para continuar")
-            presentacion=True
-            break
-        elif salvarlos=="2":
-            print("Hombre: Dios se apiade de nosotros")
-            input("Presiona cualquier tecla para continuar")
-            final_malo=True
-            break
-    return presentacion
-def guia_presentado():
-    print("Lucius: Que dios te guie, viajero...")
-    input("Presiona cualquier tecla para continuar")
-
-def guia_final_presentado():
-    print("Lucius: Gracias viajero, eres nuestro heroe, mi pueblo esta en deuda contigo")
-    input("Presiona cualquier tecla para continuar")
-    final_bueno=True
-
-def guia_final_no_presentado():
-    print("Hombre: Gracias, viajero desconocido, nuestro pueblo esta en deuda contigo")
-    input("Presiona cualquier tecla para continuar")
-    final_bueno=True
+    print("Hombre: Ayudanos a recuperarla, y te recompensaremos")
+    time.sleep(1)
+    print("Hombre: Puede que esto te ayude")
+    time.sleep(1)
+    print("*Obtuviste medallòn vampiro*")
+    time.sleep(1)
+    print("Absorbe vida al derrotar enemigos y te permite superar")
+    print("los limites de tu propia salud")
+    time.sleep(1)
+    input("Presione cualquier tecla para continuar")
 
 def perro():
     print("*Saludas al perro*")
@@ -79,3 +53,23 @@ def combate_opciones():
     3.Huir"""
     print(opciones)
     return input("Elije una opcion: ")
+
+def clases_menu():
+    clases_menu="""
+    =========Escoja una clase=======
+    1.Guerrero:
+      Daño 15, Defensa: 5, Vida: 100
+    2.Mago:
+      Daño 7, Defensa: 5, Vida: 130
+      +Pociones
+      Absorbe daño de los enemigos
+    3.Enano:
+      Daño: 12, Defensa: 15, Vida: 85
+      +Comida
+    4.Tanque:
+      Daño:5, Defensa: 20, Vida: 110
+      +Pociones
+    =================================
+    """
+    print(clases_menu)
+    return input("Selecciona: ")
