@@ -149,6 +149,7 @@ def usar_item():
             for item, cantidad in inventario.items():
                         print(f"{item}->{cantidad}")
             print("==========================")
+            print(f"VIDA:{estadisticas['Salud']}")
             while True:
                     objeto_elegido=input("Ingrese el nombre del objeto elegido(Escriba salir para salir): ")
                     if objeto_elegido in inventario.keys():
@@ -191,7 +192,7 @@ def pelea_serpiente():
     turno=1
     global clase
     while True:
-            imprimir_mapa(mapa_actual)
+            imprimir_mapa(mapa_spawn)
             print(f"=====Turno {turno}=====")
             print(f"Jugador:{estadisticas['Salud']}   Enemigo: {serpientevida}")
             op=combate_opciones()
@@ -225,8 +226,12 @@ def pelea_serpiente():
                 daño=random.randint(10,15)
                 print(f"La serpiente de hace {daño} de daño")
                 time.sleep(1)
-                daño-=estadisticas["Defensa"]
-                estadisticas["Salud"]-=daño
+                if daño<estadisticas["Defensa"]:
+                    print("Bloqueaste todo el daño")
+                else:
+                    daño-=estadisticas["Defensa"]
+                    estadisticas["Salud"]-=daño
+                    print(f"Recibes {daño} de daño")
                 with open("estadisticas.json","w") as file:
                     json.dump(estadisticas, file, indent=4)
                 if estadisticas["Salud"]<=0:
@@ -326,8 +331,12 @@ def pelea_muñeco():
                 daño=random.randint(10,20)
                 print(f"El esqueleto te hace {daño} de daño")
                 time.sleep(1)
-                daño-=estadisticas["Defensa"]
-                estadisticas["Salud"]-=daño
+                if daño<estadisticas["Defensa"]:
+                    print("Bloqueaste todo el daño")
+                else:
+                    daño-=estadisticas["Defensa"]
+                    estadisticas["Salud"]-=daño
+                    print(f"Recibes {daño} de daño")
                 with open("estadisticas.json","w") as file:
                     json.dump(estadisticas, file, indent=4)
                 if estadisticas["Salud"]<=0:
@@ -435,8 +444,12 @@ def pelea_sala():
                 daño=random.randint(10,30)
                 print(f"El esqueleto te hace {daño} de daño")
                 time.sleep(1)
-                daño-=estadisticas["Defensa"]
-                estadisticas["Salud"]-=daño
+                if daño<estadisticas["Defensa"]:
+                    print("Bloqueaste todo el daño")
+                else:
+                    daño-=estadisticas["Defensa"]
+                    estadisticas["Salud"]-=daño
+                    print(f"Recibes {daño} de daño")
                 with open("estadisticas.json","w") as file:
                     json.dump(estadisticas, file, indent=4)
                 if estadisticas["Salud"]<=0:
@@ -488,8 +501,12 @@ def pelea_miniboss():
                 daño=random.randint(20,40)
                 print(f"El esqueleto gigante te hace {daño} de daño")
                 time.sleep(1)
-                daño-=estadisticas["Defensa"]
-                estadisticas["Salud"]-=daño
+                if daño<estadisticas["Defensa"]:
+                    print("Bloqueaste todo el daño")
+                else:
+                    daño-=estadisticas["Defensa"]
+                    estadisticas["Salud"]-=daño
+                    print(f"Recibes {daño} de daño")
                 with open("estadisticas.json","w") as file:
                     json.dump(estadisticas, file, indent=4)
                 if estadisticas["Salud"]<=0:
@@ -535,8 +552,12 @@ def pelea_boss():
                 daño=random.randint(30,60)
                 print(f"El demonio te hace {daño} de daño")
                 time.sleep(1)
-                daño-=estadisticas["Defensa"]
-                estadisticas["Salud"]-=daño
+                if daño<estadisticas["Defensa"]:
+                    print("Bloqueaste todo el daño")
+                else:
+                    daño-=estadisticas["Defensa"]
+                    estadisticas["Salud"]-=daño
+                    print(f"Recibes {daño} de daño")
                 with open("estadisticas.json","w") as file:
                     json.dump(estadisticas, file, indent=4)
                 if estadisticas["Salud"]<=0:
